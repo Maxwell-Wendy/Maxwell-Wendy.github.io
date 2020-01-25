@@ -60,7 +60,7 @@ function getBooksByAuthor() {
 
 function myDisplayFunction(result) {
     console.log(result.items.length);
-    var booklist = "";
+    var booklist = "Here are the first 20 books from your search: <br><br>";
 
     for(var i=0; i < result.items.length; i++) {
         var title = result.items[i].volumeInfo.title;
