@@ -6,7 +6,6 @@ var searchText = "";
 var input = "";
 
 
-
 function getBooksByTitle() {
     xmlhttp = new XMLHttpRequest();
     var url = 'https://www.googleapis.com/books/v1/volumes/?maxResults=20&apikey=' + myapikey;

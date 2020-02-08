@@ -1,15 +1,18 @@
-.nav ul {
+nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 120px;
-    background-color: mediumpurple;
+    width: 150px;
+
 }
 
 li a {
     display: block;
     padding: 5px 10px;
     text-decoration: none;
+    background-color:palegreen;
+    width: 150px;
+
 }
 
 li a:hover {
