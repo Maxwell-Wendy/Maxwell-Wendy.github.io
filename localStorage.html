@@ -7,14 +7,16 @@
     <body>
         <div style="margin-top:30px">
             <h3>Enter your first name:</h3>
+            <p>(The text field will be 1.5 times taller on hover and will change color when clicked.)</p>
             <form>
-                <input type="text" id="fname1"><br>
+                <input type="text" class="text_box" id="fname1"><br>
                 <button type="button" onclick="saveFirstName();">Save</button>
             </form>
     
             <h3>Enter your last name:</h3>
+            <p>(The text field will rotate 360 degrees on hover and will change color when clicked.)</p>
             <form>
-                <input type="text" id="lname1"><br>
+                <input type="text" class="text_box" id="lname1"><br>
                 <button type="button" onclick="saveLastName();">Save</button>
             </form>
         </div>
@@ -27,14 +29,16 @@
         </div>
         <br>
         <div id="fullname1"></div>
-        <br><br>
+        <br>
 
         <div style="margin-top:30px">
             <form>
                 <h3>Enter your first name:</h3>
-                <input type="text" id="fname2">
+                <p>(The text field will move to the right and down on hover and will change color when clicked.)</p>
+                <input type="text" class="text_box" id="fname2">
                 <h3>Enter your last name:</h3>
-                <input type="text" id="lname2"><br>
+                <p>(The text field will be skewed 45 degrees on hover and will change color when clicked.)</p>
+                <input type="text" class="text_box" id="lname2"><br>
                 <button type="button" onclick="saveName();">Save full name</button><br>
             </form>
         </div>
@@ -43,6 +47,12 @@
         <button type="button" onclick="displayName();">Click here to retrieve your 
             full name from localStorage</button><br>
         <div id="fullname2"></div>
+        <br><br>
+        <p>This shows a square that is skewed, translated, and scaled on hover.</p>
+        <div class="square1"></div>
+        <br>
+        <p>This shows a square that is rotated about it's top left corner on hover.</p>
+        <div class="square2"></div>
         <br><br>
         <a href="index.html">Back to Main Page</a>
     </body>

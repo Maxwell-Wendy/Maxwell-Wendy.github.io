@@ -19,3 +19,69 @@ li a:hover {
     background-color: lightskyblue;
 }
 
+.text_box {
+    background-color: lightskyblue;
+}
+
+.text_box:focus-within {
+    background-color: lightcoral;
+}
+
+#fname1 {
+    transition: transform 2s ease, background-color 4s ease;
+}
+
+#fname1:hover {
+    transform: scaleY(1.5);
+}
+
+#lname1 {
+    transition: transform 2s ease-in-out, background-color 3s ease-in;
+}
+
+#lname1:hover {
+    transform: rotate(360deg);
+}
+
+#fname2 {
+    transition: transform 4s ease-out, background-color 1s linear;
+}
+
+#fname2:hover {
+    transform: translate(20px, 20px);
+}
+
+#lname2 {
+    transition: all 2s;
+}
+
+#lname2:hover {
+    transform: skewX(45deg);
+}
+
+.square1 {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: lightskyblue;
+    margin: 50px;
+    transition: all 2s;
+}
+
+.square1:hover {
+    transform: skewY(30deg) translate(50px, 50px) scale(2);
+}
+
+.square2 {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: lightskyblue;
+    margin: 50px;
+    transition: all 2s;
+    transform-origin: top left;
+}
+
+.square2:hover {
+    transform: rotate(-90deg);
+}

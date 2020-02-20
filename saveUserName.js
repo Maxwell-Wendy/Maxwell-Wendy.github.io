@@ -1,3 +1,10 @@
+class FullName {
+    constructor(first, last) {
+        this.first = first;
+        this.last = last;
+    }
+}
+
 function saveFirstName() {
     var firstName1 = document.getElementById("fname1").value;
     console.log(firstName1);
@@ -20,14 +27,14 @@ function saveName() {
     console.log(firstName2);
     var lastName2 = document.getElementById("lname2").value;
     console.log(lastName2);
-    var fullName = {first_name: firstName2, last_name: lastName2}
+    var fullName = new FullName(firstName2, lastName2);
     var fullNameString = JSON.stringify(fullName);
     localStorage.full_name = fullNameString;
 }
 
 function displayName() {
-    var fullNameAsJSObject = JSON.parse(localStorage.full_name);
+    var name = JSON.parse(localStorage.full_name);
     document.getElementById("fullname2").innerHTML = "Your full name is " + 
-    fullNameAsJSObject.first_name + " " + fullNameAsJSObject.last_name + ".";
+    name.first + " " + name.last + ".";
 }
 
