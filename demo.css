@@ -1,0 +1,20 @@
+.text_box {
+    background-color: lightskyblue;
+}
+
+.text_box:focus-within {
+    background-color: lightcoral;
+}
+
+#color {
+    transition: transform 2s, background-color 4s;
+}
+
+#color:hover {
+    transform: scaleY(1.5);
+}
+
+#list {
+    background-color: gray;
+    max-width: 120px;
+}
