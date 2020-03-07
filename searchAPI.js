@@ -1,28 +1,22 @@
-var xmlhttp = new XMLHttpRequest();
 //const myapikey = process.env.GOOGLE_API_KEY;
-const myapikey = "20a6c88e296ccb9a84900de16bdc0d715e85d073";
+const myapikey = localStorage.getItem(apikey);
 var searchBy = "";
 var searchText = "";
 var input = "";
 
 
 function getBooksByTitle() {
-    xmlhttp = new XMLHttpRequest();
+    var xmlhttp = new XMLHttpRequest();
+
     var url = 'https://www.googleapis.com/books/v1/volumes/?maxResults=20&apikey=' + myapikey;
     searchBy = document.getElementsByName("searchBy")[0].value;
     searchText = document.getElementsByName("searchText")[0].value;
     input = searchBy + searchText;
-
-    console.log(searchBy);
-    console.log(searchText);
-
-    console.log(input);
     url = url + "&q=" + input;
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var myBookByTitle = JSON.parse(this.responseText);
-            console.log(myBookByTitle);
             myDisplayFunction(myBookByTitle);
         }
     };
@@ -32,22 +26,17 @@ function getBooksByTitle() {
 }
 
 function getBooksByAuthor() {
-    xmlhttp = new XMLHttpRequest();
+    var xmlhttp = new XMLHttpRequest();
+
     var url = 'https://www.googleapis.com/books/v1/volumes/?maxResults=20&apikey=' + myapikey;
     searchBy = document.getElementsByName("searchBy")[1].value;
     searchText = document.getElementsByName("searchText")[1].value;
     input = searchBy + searchText;
-
-    console.log(searchBy);
-    console.log(searchText);
-
-    console.log(input);
     url = url + "&q=" + input;
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var myBookByAuthor = JSON.parse(this.responseText);
-            console.log(myBookByAuthor);
             myDisplayFunction(myBookByAuthor);
         }
     };
@@ -58,15 +47,14 @@ function getBooksByAuthor() {
 
 
 function myDisplayFunction(result) {
-    console.log(result.items.length);
+    console.log(result.items[0]);
     var booklist = "Here are the first 20 books from your search: <br><br>";
 
     for(var i=0; i < result.items.length; i++) {
         var title = result.items[i].volumeInfo.title;
         console.log(title);
-
         var author = result.items[i].volumeInfo.authors;
-        
+        console.log(author);  
         var id = result.items[i].id;
         console.log(id);
         booklist += '<strong>' + title + '</strong> by ' + author + '<br>';
