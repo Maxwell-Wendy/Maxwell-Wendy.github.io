@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" type="text/css" href="demo.css">
-        <script src="demo.js"></script>
-    </head>
-    <body>
-        <div style="margin-top:30px">
-            <h3>Enter a color:</h3>
-            <form>
-                <input type="text" class="text_box" id="color"><br>
-                <br>
-            </form>
-            <button onclick="addToList();">Add to Bottom of List</button>
-            <button onclick="addToTopOfList();">Add to Top of List</button>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="demo.css">
+    <script src="demo.js"></script>
+</head>
+
+<body onload="drawRectangle();">
+    <div class="row">
+        <div class="column">
+            <div style="margin-top:30px">
+                <h3>Enter a color:</h3>
+                <form>
+                    <input type="text" id="color"><br>
+                    <br>
+                </form>
+                <button onclick="addToList(); drawTriangle1();">Add to Bottom of List</button>
+                <button onclick="addToTopOfList(); drawTriangle2();">Add to Top of List</button>
+            </div>
+            <h3>List of Colors:</h3>
+            <ol id="list">
+                <li>Blue</li>
+            </ol>
+            <h2>Canvas example</h2>
+            <canvas id="canvasDemo" width="200" height="125"></canvas>
+            <h2>Animation examples</h2>
+            <div id="surprise">Surprise!</div>
+            <br>
+            <div class="animation" id="color_change">Colors!!</div>
+            <br>
+            <div class="animation" id="sliding_spinning">Move!!</div>
+            <br>
+            <div class="animation" id="bouncing">Bounce!!</div>
         </div>
-        <h3>List of Colors:</h3>
-        <ol id="list">
-            <li>Blue</li>
-        </ol>
-        <div id="surprise">Surprise!</div>
-        <br>
-        <div class="animation" id="color_change">Colors!!</div>
-        <br>
-        <div class="animation" id="sliding_spinning">Move!!</div>
-        <br>
-        <div class="animation" id="bouncing">Bounce!!</div>
-       
-    </body>
+        <div class="column">
+            <h2>Video of Easter eggs in a basket</h2>
+            <video id="eggs" width="320" height="240" controls>
+                <source src="coloredEggs.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p>Stock footage provided by Videvo, downloaded from <a href="https://videvo.net">https://videvo.net</a></p>
+
+            <h2>Audio clip of birds chirping</h2>
+            <audio id="birds" controls>
+                <source src="birdsChirping.mp3" type="audio/mp3">
+                Your browser does not support the audio tag.
+            </audio>
+            <p>Audio clip from <a href="http://www.orangefreesounds.com/">http://www.orangefreesounds.com</a></p>
+        </div>
+    </div>
+</body>
 </html>

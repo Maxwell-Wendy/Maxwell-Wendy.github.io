@@ -21,7 +21,7 @@ ol {
 #list {
     background-color: blue;
     color: white;
-    max-width: 120px;
+    max-width: 150px;
 }
 
 #surprise {
@@ -80,4 +80,30 @@ ol {
     0% {transform: translateY(0px);}
     50%{transform: translateY(50px);}
     100% {transform: translateY(0px);}
+}
+
+canvas {
+    border:1px solid black;
+}
+
+* {
+    box-sizing: border-box;
+}
+  
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+    }
 }
