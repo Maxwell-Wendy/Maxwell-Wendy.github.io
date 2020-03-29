@@ -19,12 +19,45 @@ li a:hover {
     background-color: lightskyblue;
 }
 
-.text_box {
+.column {
     background-color: lightskyblue;
+    transition: transform 2s, background-color 4s;
 }
 
-.text_box:focus-within {
+.column:focus-within {
     background-color: lightcoral;
+}
+
+
+.column:hover {
+    transform: scale(1.5) translate(100px, 0px);
+}
+
+#titleSearch {
+    background-color: lightblue;
+    transition: transform 2s, background-color 4s;
+}
+
+#titleSearch:hover {
+    transform: scale(1.5) translate(100px, 0px);
+}
+
+#titleSearch:focus-within {
+    background-color: plum;
+}
+
+#authorSearch {
+    background-color: teal;
+    color: papayawhip;
+    transition: transform 2s, background-color 4s;
+}
+
+#authorSearch:hover {
+    transform: scale(1.5) translate(100px, 0px);
+}
+
+#authorSearch:focus-within {
+    background-color: rebeccapurple;
 }
 
 #fname1 {
@@ -84,4 +117,26 @@ li a:hover {
 
 .square2:hover {
     transform: rotate(-90deg);
+}
+
+* {
+    box-sizing: border-box;
+}
+  
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+    }
 }

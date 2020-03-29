@@ -43,26 +43,26 @@ ol {
 }
 
 #color_change {
-    animation: demo 5s infinite;
+    animation: color_change 5s infinite;
 }
 
 #sliding_spinning {
-    animation:sliding_spinning 5s 1; 
+    animation: sliding_spinning 5s 1; 
 }
 
 #bouncing {
-    animation:bouncing 1s 5;
+    animation: bouncing 1s 5;
 }
 
 #sliding_spinning2 {
-    animation:sliding_spinning 5s 1; 
+    animation: sliding_spinning 5s 1; 
 }
 
 #bouncing2 {
-    animation:bouncing 1s 5;
+    animation: bouncing 1s 5;
 }
 
-@keyframes demo {
+@keyframes color_change {
     0% {background-color: blueviolet;}
     50% {background-color: teal;}
     100% {background-color: blueviolet;}
@@ -83,7 +83,7 @@ ol {
 }
 
 canvas {
-    border:1px solid black;
+    border: 1px solid black;
 }
 
 * {
