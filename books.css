@@ -47,6 +47,14 @@
     background-color: rebeccapurple;
 }
 
+#displayButton {
+    visibility: hidden;
+}
+
+#saveButton {
+    visibility: hidden;
+}
+
 .animation {
     width: 200px;
     height: 100px;

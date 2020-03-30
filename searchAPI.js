@@ -114,13 +114,8 @@ function myDisplayFunction(result) {
     message.innerHTML = "If you would like to see details about a book, select a radio button and...";
     form.appendChild(message);
     
-    var btn = document.createElement("input");
-    btn.type = "button";
-    btn.value = "Click here!";
-    btn.onclick = function () {
-        displayDetails();
-    }
-    form.appendChild(btn);
+    document.getElementById("displayButton").style.visibility = "visible";
+    document.getElementById("saveButton").style.visibility = "hidden";
     document.getElementById("output").innerHTML = "Here are the first 10 books from your search.<br><br>";
 }
 
@@ -139,8 +134,61 @@ function displayDetails() {
 
     var title = bookList[bookId].title;
     var author = bookList[bookId].author;
+    var id = bookList[bookId].id;
     var imageURL = bookList[bookId].imageURL;
     var description = bookList[bookId].description;
+    var book = new Book(title, author, id, imageURL, description);
+    localStorage.setItem("book", JSON.stringify(book));
+
+    console.log("this is the title", title);
+    console.log("by " + author);
+
+    var image = document.createElement("img");
+    image.src = imageURL;
+    image.alt = "Book Image";
+    image.id = "spinning";
+   
+    var t = document.createElement("h3");
+    t.innerHTML = title;
+    t.id = "bouncing";
+    t.onmouseover = "blueVioletText();"
+    t.onmouseout = "blackText();"
+    var a = document.createElement("p");
+    a.id = "authorName";
+    a.innerHTML = "by " + author;
+    var desc = document.createElement("p");
+    desc.id = "bookDescription";
+    desc.innerHTML = description;
+
+    var addBreak = document.createElement("br");
+    var message = document.createElement("p");
+    message.innerHTML = "If you would like to save this book to localStorage...";
+    document.getElementById("saveButton").style.visibility = "visible";
+    
+    details.appendChild(t);
+    details.appendChild(addBreak);
+    details.appendChild(image);
+    details.appendChild(a);
+    details.appendChild(addBreak);
+    details.appendChild(desc);
+    details.appendChild(message);
+}
+
+function displaySavedBookDetails() {
+    var details = document.getElementById("details");
+    while (details.hasChildNodes()) {  
+        details.removeChild(details.firstChild);
+    }
+
+    var retrievedBook = localStorage.getItem("myBook");
+    console.log(retrievedBook);
+
+    var book = JSON.parse(retrievedBook);
+
+    var title = book.title;
+    var author = book.author;
+    var imageURL = book.imageURL;
+    var description = book.description;
 
     console.log("this is the title", title);
     console.log("by " + author);
@@ -160,6 +208,9 @@ function displayDetails() {
     var desc = document.createElement("p");
     desc.innerHTML = description;
     var addBreak = document.createElement("br");
+    var message = document.createElement("p");
+    message.innerHTML = "You have saved this book.";
+    document.getElementById("saveButton").style.visibility = "hidden";
 
     details.appendChild(t);
     details.appendChild(addBreak);
@@ -167,7 +218,15 @@ function displayDetails() {
     details.appendChild(a);
     details.appendChild(addBreak);
     details.appendChild(desc);
+    details.appendChild(message);
 }
+
+function saveBook() {
+    var retrievedBook = localStorage.getItem("book");
+    localStorage.setItem("myBook", retrievedBook);
+    console.log(retrievedBook);
+    alert("Book saved");
+} 
 
 function blueVioletText() {
     document.getElementById("output").style.color = "blueviolet";
@@ -181,26 +240,29 @@ function blueVioletBackground1() {
     document.getElementById("displayField").style.backgroundColor = "blueviolet";
     document.getElementById("displayField").style.color = "white";
     document.getElementById("displayField").style.transition = "all 1.5s";
+    document.getElementById("output").style.transform = "translate(20px, 0px)";
+    document.getElementById("output").style.transition = "all 1.5s";
     document.getElementById("moving").style.backgroundColor = "white";
 }
 
 function whiteBackground1() {
     document.getElementById("displayField").style.backgroundColor = "white";
     document.getElementById("displayField").style.color = "black";
+    document.getElementById("output").style.transform = "initial";
     document.getElementById("displayField").style.transition = "all 1.5s";
     document.getElementById("moving").style.backgroundColor = "blueviolet";
 }
 
 function blueVioletBackground2() {
-    document.getElementById("details").style.backgroundColor = "blueviolet";
-    document.getElementById("details").style.color = "white";
-    document.getElementById("details").style.transition = "all 1.5s";
+    document.getElementById("detailsDisplayField").style.backgroundColor = "blueviolet";
+    document.getElementById("detailsDisplayField").style.color = "white";
+    document.getElementById("detailsDisplayField").style.transition = "all 1.5s";
     document.getElementById("moving").style.backgroundColor = "white";
 }
 
 function whiteBackground2() {
-    document.getElementById("details").style.backgroundColor = "white";
-    document.getElementById("details").style.color = "black";
-    document.getElementById("details").style.transition = "all 1.5s";
+    document.getElementById("detailsDisplayField").style.backgroundColor = "white";
+    document.getElementById("detailsDisplayField").style.color = "black";
+    document.getElementById("detailsDisplayField").style.transition = "all 1.5s";
     document.getElementById("moving").style.backgroundColor = "blueviolet";
 }

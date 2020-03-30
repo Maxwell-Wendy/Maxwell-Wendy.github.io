@@ -17,7 +17,7 @@
                 <h3>Enter a book title to search in Google Books:</h3>
                 <form>
                     <input type="hidden" value="" name="searchBy">
-                    <input type="text" class="text_box" name="searchText">
+                    <input type="text" name="searchText">
                     <button type="button" onclick="getBooksByTitle();">Search</button>
                 </form>
             </div>
@@ -31,6 +31,10 @@
             </div>
         </div>
     </div>
+    <div>
+        <p>If you have saved a book in a previous visit, click here to view the book's details.</p>
+        <button type="button" onclick="displaySavedBookDetails();">Show Saved Book Details</button>
+    </div>
     <br><br><br><br>
     <div class="animation" id="moving">I Love Books!!</div>
     
@@ -39,11 +43,18 @@
             <div class="column">
                 <h2 id="output" onmouseover="blueVioletText();" onmouseout="blackText();"></h2>
                 <div id="displayField" onmouseover="blueVioletBackground1();" onmouseout="whiteBackground1();">
-                    <form id="booklist"></form>
+                    <div>
+                        <form id="booklist"></form>
+                    </div>
+                    <button type="button" id="displayButton" onclick="displayDetails();">Click here!</button>
                 </div>
             </div>
             <div class="column">
-                <div id="details" onmouseover="blueVioletBackground2();" onmouseout="whiteBackground2();"></div>
+                <div id="detailsDisplayField" onmouseover="blueVioletBackground2();" onmouseout="whiteBackground2();">
+                    <div id="details"></div>
+                    <button type="button" id="saveButton" onclick="saveBook();">Click here!</button>
+                </div>
+
             </div>
         </div>
     </div>
