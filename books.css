@@ -22,7 +22,7 @@
 
 #titleSearch {
     background-color: lightblue;
-    transition: transform 2s, background-color 3s;
+    transition: transform 2s linear, background-color 3s ease;
 }
 
 #titleSearch:hover {
@@ -36,7 +36,7 @@
 #authorSearch {
     background-color: teal;
     color: papayawhip;
-    transition: transform 2s, background-color 3s;
+    transition: transform 2s ease-in-out, background-color 3s ease;
 }
 
 #authorSearch:hover {
